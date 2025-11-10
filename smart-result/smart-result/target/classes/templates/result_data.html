@@ -1,0 +1,219 @@
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Student Marksheet - Smart Result</title>-->
+<!--    <script src="https://cdn.tailwindcss.com"></script>-->
+<!--</head>-->
+<!--<body class="bg-gradient-to-r from-blue-50 to-indigo-100 font-sans">-->
+
+<!--&lt;!&ndash; Container &ndash;&gt;-->
+<!--<div class="max-w-5xl mx-auto bg-white shadow-2xl rounded-3xl p-10 mt-12">-->
+
+<!--    &lt;!&ndash; Header &ndash;&gt;-->
+<!--    <div class="text-center mb-10 border-b pb-6">-->
+<!--        <h1 class="text-4xl font-extrabold text-blue-700 tracking-wide">🎓 Smart Result</h1>-->
+<!--        <p class="text-gray-600 italic">Official Student Marksheet</p>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Student Info &ndash;&gt;-->
+<!--    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">-->
+<!--        <div class="bg-gray-50 rounded-xl p-5 shadow-sm">-->
+<!--            <p><span class="font-semibold">👤 Name : </span> <span th:text="${student.name}"></span></p>-->
+<!--            <p><span class="font-semibold">🆔 Roll Number : </span><span th:text="${student.rollNumber}"></span></p>-->
+<!--            <p><span class="font-semibold">📧 Email :</span> <span th:text="${student.email}"></span></p>-->
+<!--        </div>-->
+<!--        <div class="bg-gray-50 rounded-xl p-5 shadow-sm">-->
+<!--            <p><span class="font-semibold">🏫 School : </span><span th:text="${student.schoolName}"></span></p>-->
+<!--            <p><span class="font-semibold">🎂 DOB : </span><span th:text="${student.dob}"></span></p>-->
+<!--            <p><span class="font-semibold">⚧ Gender : </span> <span th:text="${student.gender}"></span></p>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Marks Table &ndash;&gt;-->
+<!--    <div class="overflow-x-auto mb-10">-->
+<!--        <table class="w-full border border-gray-300 rounded-xl shadow-md">-->
+<!--            <thead class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">-->
+<!--            <tr>-->
+<!--                <th class="py-3 px-4 text-left">Subject</th>-->
+<!--                <th class="py-3 px-4 text-center">Marks</th>-->
+<!--                <th class="py-3 px-4 text-center">Max Marks</th>-->
+<!--                <th class="py-3 px-4 text-center">Grade</th>-->
+<!--                <th class="py-3 px-4 text-center">Remark</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody class="divide-y divide-gray-200 bg-white">-->
+<!--            <tr th:each="mark:${marks}" class="hover:bg-blue-50">-->
+<!--                <td class="py-3 px-4 font-medium"><span th:text="${mark.subject}"></span></td>-->
+<!--                <td class="py-3 px-4 text-center"><span th:text="${mark.marks}"></span></td>-->
+<!--                <td class="py-3 px-4 text-center"><span th:text="${mark.maxMarks}"></span></td>-->
+<!--                <td class="py-3 px-4 text-center font-bold text-green-600"><span th:text="${mark.grade}"></span></td>-->
+<!--                <td class="py-3 px-4 text-center text-gray-600"><span th:text="${mark.remark}"></span></td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Summary &ndash;&gt;-->
+<!--    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">-->
+<!--        <div class="bg-gradient-to-r from-green-100 to-green-200 rounded-2xl shadow-md p-6 text-center">-->
+<!--            <p class="text-gray-700 font-semibold">📊 Total Marks</p>-->
+<!--            <p class="text-2xl font-bold text-green-700 mt-2"><span th:text="${totalMarks}"></span>/<span th:text="${totalMaxMarks}"></span></p>-->
+<!--        </div>-->
+<!--        <div class="bg-gradient-to-r from-yellow-100 to-yellow-200 rounded-2xl shadow-md p-6 text-center">-->
+<!--            <p class="text-gray-700 font-semibold">📈 Percentage</p>-->
+<!--            <p class="text-2xl font-bold text-yellow-700 mt-2"><span th:text="${percentage}">%</span></p>-->
+<!--        </div>-->
+<!--        <div class="bg-gradient-to-r from-blue-100 to-blue-200 rounded-2xl shadow-md p-6 text-center">-->
+<!--            <p class="text-gray-700 font-semibold">🏅 Overall Grade</p>-->
+<!--            <p class="text-2xl font-bold text-blue-700 mt-2"><span th:text="${totalGrade}"></span></p>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Feedback &ndash;&gt;-->
+<!--    <div class="text-center bg-gradient-to-r from-purple-100 to-purple-200 p-6 rounded-2xl shadow-md">-->
+<!--        <p class="text-xl font-semibold text-gray-800 flex items-center justify-center gap-2">-->
+<!--            💡 <span th:text="${feedback}"></span>-->
+<!--        </p>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Buttons &ndash;&gt;-->
+<!--    <div class="mt-8 flex justify-center gap-6">-->
+<!--        <a th:href="@{'/results/input'}"-->
+<!--           class="px-6 py-3 bg-green-500 text-white rounded-xl shadow hover:bg-green-600 transition">-->
+<!--            🔄 View Another-->
+<!--        </a>-->
+<!--        <a th:href="@{'/'}"-->
+<!--           class="px-6 py-3 bg-gray-200 text-gray-700 rounded-xl shadow hover:bg-gray-300 transition">-->
+<!--            🏠 Go to Dashboard-->
+<!--        </a>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marksheet - Smart Result</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Print Styles */
+        @media print {
+          body {
+            background: white !important;
+          }
+          a, button {
+            display: none !important; /* hide buttons in print */
+          }
+          .no-print {
+            display: none !important;
+          }
+          .print-area {
+            box-shadow: none !important;
+            border: none !important;
+            margin: 0;
+            padding: 0;
+          }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-blue-50 to-indigo-100 font-sans">
+
+<!-- Container -->
+<div id="printArea" class="max-w-5xl mx-auto bg-white shadow-2xl rounded-3xl p-10 mt-12 print-area">
+
+    <!-- Header -->
+    <div class="text-center mb-10 border-b pb-6">
+        <h1 class="text-4xl font-extrabold text-blue-700 tracking-wide">🎓 Smart Result</h1>
+        <p class="text-gray-600 italic">Official Student Marksheet</p>
+    </div>
+
+    <!-- Student Info -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+        <div class="bg-gray-50 rounded-xl p-5 shadow-sm">
+            <p><span class="font-semibold">👤 Name : </span> <span th:text="${student.name}"></span></p>
+            <p><span class="font-semibold">🆔 Roll Number : </span><span th:text="${student.rollNumber}"></span></p>
+            <p><span class="font-semibold">📧 Email :</span> <span th:text="${student.email}"></span></p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-5 shadow-sm">
+            <p><span class="font-semibold">🏫 School : </span><span th:text="${student.schoolName}"></span></p>
+            <p><span class="font-semibold">🎂 DOB : </span><span th:text="${student.dob}"></span></p>
+            <p><span class="font-semibold">⚧ Gender : </span> <span th:text="${student.gender}"></span></p>
+        </div>
+    </div>
+
+    <!-- Marks Table -->
+    <div class="overflow-x-auto mb-10">
+        <table class="w-full border border-gray-300 rounded-xl shadow-md">
+            <thead class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+            <tr>
+                <th class="py-3 px-4 text-left">Subject</th>
+                <th class="py-3 px-4 text-center">Marks</th>
+                <th class="py-3 px-4 text-center">Max Marks</th>
+                <th class="py-3 px-4 text-center">Grade</th>
+                <th class="py-3 px-4 text-center">Remark</th>
+            </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 bg-white">
+            <tr th:each="mark:${marks}" class="hover:bg-blue-50">
+                <td class="py-3 px-4 font-medium"><span th:text="${mark.subject}"></span></td>
+                <td class="py-3 px-4 text-center"><span th:text="${mark.marks}"></span></td>
+                <td class="py-3 px-4 text-center"><span th:text="${mark.maxMarks}"></span></td>
+                <td class="py-3 px-4 text-center font-bold text-green-600"><span th:text="${mark.grade}"></span></td>
+                <td class="py-3 px-4 text-center text-gray-600"><span th:text="${mark.remark}"></span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Summary -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        <div class="bg-gradient-to-r from-green-100 to-green-200 rounded-2xl shadow-md p-6 text-center">
+            <p class="text-gray-700 font-semibold">📊 Total Marks</p>
+            <p class="text-2xl font-bold text-green-700 mt-2"><span th:text="${totalMarks}"></span>/<span th:text="${totalMaxMarks}"></span></p>
+        </div>
+        <div class="bg-gradient-to-r from-yellow-100 to-yellow-200 rounded-2xl shadow-md p-6 text-center">
+            <p class="text-gray-700 font-semibold">📈 Percentage</p>
+            <p class="text-2xl font-bold text-yellow-700 mt-2"><span th:text="${percentage}">%</span></p>
+        </div>
+        <div class="bg-gradient-to-r from-blue-100 to-blue-200 rounded-2xl shadow-md p-6 text-center">
+            <p class="text-gray-700 font-semibold">🏅 Overall Grade</p>
+            <p class="text-2xl font-bold text-blue-700 mt-2"><span th:text="${totalGrade}"></span></p>
+        </div>
+    </div>
+
+    <!-- Feedback -->
+    <div class="text-center bg-gradient-to-r from-purple-100 to-purple-200 p-6 rounded-2xl shadow-md">
+        <p class="text-xl font-semibold text-gray-800 flex items-center justify-center gap-2">
+            💡 <span th:text="${feedback}"></span>
+        </p>
+    </div>
+
+    <!-- Buttons -->
+    <div class="mt-8 flex justify-center gap-6 no-print">
+        <a th:href="@{'/results/input'}"
+           class="px-6 py-3 bg-green-500 text-white rounded-xl shadow hover:bg-green-600 transition">
+            🔄 View Another
+        </a>
+        <a th:href="@{'/'}"
+           class="px-6 py-3 bg-gray-200 text-gray-700 rounded-xl shadow hover:bg-gray-300 transition">
+            🏠 Go to Dashboard
+        </a>
+        <button onclick="window.print()"
+                class="px-6 py-3 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 transition">
+            🖨️ Print Marksheet
+        </button>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+

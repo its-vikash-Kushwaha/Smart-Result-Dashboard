@@ -1,0 +1,82 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Success Page</title>-->
+<!--    <script src="https://cdn.tailwindcss.com"></script>-->
+<!--</head>-->
+<!--<body class="bg-gray-100 flex items-center justify-center min-h-screen">-->
+
+<!--<div class="bg-white p-8 rounded-2xl shadow-lg text-center max-w-md w-full">-->
+<!--    &lt;!&ndash; Success Icon &ndash;&gt;-->
+<!--    <div class="flex justify-center mb-4">-->
+<!--        <svg class="w-16 h-16 text-green-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">-->
+<!--            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2l4-4m5 2a9 9 0 11-18 0a9 9 0 0118 0z" />-->
+<!--        </svg>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Success Message &ndash;&gt;-->
+<!--    <h1 class="text-2xl font-bold text-gray-800">Student Added Successfully!</h1>-->
+<!--    <h1 class="text-2xl font-bold text-gray-800">Student name : <span th:text="${studentForm.name}"></span></h1>-->
+<!--    <p class="text-gray-600 mt-2">The student details and marks have been saved to the system.</p>-->
+
+<!--    &lt;!&ndash; Buttons &ndash;&gt;-->
+<!--    <div class="mt-6 flex justify-center gap-4">-->
+<!--        <a th:href="@{'/results/add'}" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">-->
+<!--            Add Another-->
+<!--        </a>-->
+<!--        <a th:href="@{'/'}" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition">-->
+<!--            Go to Dashboard-->
+<!--        </a>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Success Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 flex items-center justify-center min-h-screen font-sans">
+
+<div class="bg-white p-10 rounded-3xl shadow-2xl text-center max-w-lg w-full transform transition hover:scale-105 hover:shadow-3xl">
+    <!-- Success Icon with animation -->
+    <div class="flex justify-center mb-6">
+        <svg class="w-20 h-20 text-green-500 animate-bounce" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2l4-4m5 2a9 9 0 11-18 0a9 9 0 0118 0z"/>
+        </svg>
+    </div>
+
+    <!-- Success Message -->
+    <h1 class="text-2xl font-extrabold text-gray-800">🎉 Student Added Successfully!</h1>
+    <h2 class="text-xl font-semibold text-blue-600 mt-3">Student Name:
+        <span class="text-gray-900" th:text="${studentForm.name}"></span>
+    </h2>
+    <p class="text-gray-600 mt-3 leading-relaxed">
+        The student details and marks have been <span class="font-semibold text-green-600">securely saved</span> to the system.
+        You can now add more students or return to the dashboard.
+    </p>
+
+    <!-- Divider -->
+    <div class="my-6 border-t border-gray-200"></div>
+
+    <!-- Buttons -->
+    <div class="mt-6 flex justify-center gap-5">
+        <a th:href="@{'/results/add'}" class="px-6 py-3 bg-green-500 text-white font-semibold rounded-xl hover:bg-green-600 transition transform hover:scale-105 shadow-md">
+            ➕ Add Another
+        </a>
+        <a th:href="@{'/'}" class="px-6 py-3 bg-blue-500 text-white font-semibold rounded-xl hover:bg-blue-600 transition transform hover:scale-105 shadow-md">
+            🏠 Go to Dashboard
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

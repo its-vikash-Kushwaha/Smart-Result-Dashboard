@@ -1,0 +1,258 @@
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Admin - Add Student Result</title>-->
+<!--    <script src="https://cdn.tailwindcss.com"></script>-->
+<!--</head>-->
+<!--<body class="bg-gradient-to-br from-gray-100 to-gray-200 font-sans">-->
+
+<!--<div class="max-w-6xl mx-auto bg-white shadow-2xl rounded-2xl p-10 mt-16 border border-gray-200">-->
+
+<!--    &lt;!&ndash; Header &ndash;&gt;-->
+<!--    <div class="text-center mb-10 border-b pb-6">-->
+<!--        <h1 class="text-4xl font-extrabold text-blue-700">⚡ Admin Dashboard</h1>-->
+<!--        <p class="text-gray-600 mt-2">Add Student and Their Marks Easily</p>-->
+<!--    </div>-->
+<!--    <form th:action="@{/logout}" method="post">-->
+<!--        <button type="submit" class="text-white px-3 py-2 bg-blue-700 rounded">Logout</button>-->
+<!--    </form>-->
+<!--    <form th:action="@{'/results/process-form'}" th:object="${studentForm}" method="post" id="studentForm" class="space-y-10">-->
+
+<!--        &lt;!&ndash; Student Information &ndash;&gt;-->
+<!--        <div>-->
+<!--            <h2 class="text-2xl font-semibold text-gray-800 mb-4 flex items-center gap-2">-->
+<!--                🧑‍🎓 Student Information-->
+<!--            </h2>-->
+<!--            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">-->
+<!--                <input type="text" placeholder="Student ID" th:field="*{id}" class="input-field" required>-->
+<!--                <input type="text" placeholder="Name" th:field="*{name}" class="input-field" required>-->
+<!--                <input type="text" placeholder="Roll Number" th:field="*{rollNumber}" class="input-field" required>-->
+<!--                <input type="email" placeholder="Email" th:field="*{email}" class="input-field" required>-->
+<!--                <input type="text" placeholder="School Name" th:field="*{schoolName}" class="input-field">-->
+<!--                <input type="date" placeholder="DOB" th:field="*{dob}" class="input-field">-->
+<!--                <select th:field="*{gender}" class="input-field">-->
+<!--                    <option value="">Select Gender</option>-->
+<!--                    <option value="male">Male</option>-->
+<!--                    <option value="female">Female</option>-->
+<!--                    <option value="other">Other</option>-->
+<!--                </select>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Subjects & Marks &ndash;&gt;-->
+<!--        <div>-->
+<!--            <h2 class="text-2xl font-semibold text-gray-800 mb-4 flex items-center gap-2">-->
+<!--                📚 Subjects & Marks-->
+<!--            </h2>-->
+
+
+<!--            <div id="subjectsContainer" class="space-y-6">-->
+<!--                &lt;!&ndash; Row &ndash;&gt;-->
+<!--                <div class="grid grid-cols-1 md:grid-cols-6 gap-4 bg-gray-50 p-4 rounded-lg border hover:shadow-md transition">-->
+<!--                    <input name="marks[0].subject" type="text" placeholder="Subject" class="col-span-2 input-field">-->
+<!--                    <input name="marks[0].marks" type="number" placeholder="Marks" class="input-field">-->
+<!--                    <input name="marks[0].maxMarks" type="number" placeholder="Max Marks" class="input-field">-->
+<!--                    <input name="marks[0].grade" type="text" placeholder="Grade" class="input-field">-->
+<!--                    <input name="marks[0].remark" type="text" placeholder="Remark" class="input-field">-->
+<!--                </div>-->
+
+<!--                <div class="grid grid-cols-1 md:grid-cols-6 gap-4 bg-gray-50 p-4 rounded-lg border hover:shadow-md transition">-->
+<!--                    <input name="marks[1].subject" type="text" placeholder="Subject" class="col-span-2 input-field">-->
+<!--                    <input name="marks[1].marks" type="number" placeholder="Marks" class="input-field">-->
+<!--                    <input name="marks[1].maxMarks" type="number" placeholder="Max Marks" class="input-field">-->
+<!--                    <input name="marks[1].grade" type="text" placeholder="Grade" class="input-field">-->
+<!--                    <input name="marks[1].remark" type="text" placeholder="Remark" class="input-field">-->
+<!--                </div>-->
+
+<!--                <div class="grid grid-cols-1 md:grid-cols-6 gap-4 bg-gray-50 p-4 rounded-lg border hover:shadow-md transition">-->
+<!--                    <input name="marks[2].subject" type="text" placeholder="Subject" class="col-span-2 input-field">-->
+<!--                    <input name="marks[2].marks" type="number" placeholder="Marks" class="input-field">-->
+<!--                    <input name="marks[2].maxMarks" type="number" placeholder="Max Marks" class="input-field">-->
+<!--                    <input name="marks[2].grade" type="text" placeholder="Grade" class="input-field">-->
+<!--                    <input name="marks[2].remark" type="text" placeholder="Remark" class="input-field">-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--            <div class="flex justify-center items-center my-5">-->
+<!--                <button type="button" onclick="addRow()" class="text-white px-3 py-2 bg-blue-700 rounded">Add Subject</button>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Buttons &ndash;&gt;-->
+<!--        <div class="text-center mt-10 flex justify-center gap-6">-->
+<!--            <a th:href="@{'/'}"-->
+<!--               class="px-8 py-3 rounded-lg font-semibold transition bg-gradient-to-r from-gray-500 to-gray-600 text-white hover:from-gray-600 hover:to-gray-700">-->
+<!--                Go to Dashboard-->
+<!--            </a>-->
+<!--            <button type="submit"-->
+<!--                    class="px-8 py-3 rounded-lg font-semibold transition bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700">-->
+<!--                Save Student Result-->
+<!--            </button>-->
+<!--        </div>-->
+
+<!--    </form>-->
+<!--</div>-->
+
+<!--<style>-->
+<!--    .input-field {-->
+<!--      @apply w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition;-->
+<!--    }-->
+<!--</style>-->
+<!--<script>-->
+<!--    let index=3;-->
+<!--    function addRow(){-->
+<!--    console.log("Add new");-->
+
+<!--    const container=document.getElementById("subjectsContainer");-->
+<!--    container.innerHTML=container.innerHTML + `-->
+<!--      <div class="grid grid-cols-1 md:grid-cols-6 gap-4 bg-gray-50 p-4 rounded-lg border hover:shadow-md transition">-->
+<!--                    <input name="marks[${index}].subject" type="text" placeholder="Subject" class="col-span-2 input-field">-->
+<!--                    <input name="marks[${index}].marks" type="number" placeholder="Marks" class="input-field">-->
+<!--                    <input name="marks[${index}].maxMarks" type="number" placeholder="Max Marks" class="input-field">-->
+<!--                    <input name="marks[${index}].grade" type="text" placeholder="Grade" class="input-field">-->
+<!--                    <input name="marks[${index}].remark" type="text" placeholder="Remark" class="input-field">-->
+<!--                </div>-->
+<!--    `-->
+<!--    index++;-->
+<!--    }-->
+
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Add Student Result</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-100 to-gray-200 font-sans">
+
+<div class="max-w-6xl mx-auto bg-white shadow-2xl rounded-2xl p-10 mt-16 border border-gray-200 relative">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-10 border-b pb-6">
+        <div class="text-center w-full">
+            <h1 class="text-4xl font-extrabold text-blue-700">⚡ Admin Dashboard</h1>
+            <p class="text-gray-600 mt-2">Add Student and Their Marks Easily</p>
+        </div>
+
+        <!-- Logout Button (Top-Right Corner) -->
+        <form th:action="@{'/logout'}" method="post" class="absolute right-10 top-8">
+            <button type="submit"
+                    class="px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold rounded-lg shadow hover:from-red-600 hover:to-red-700 hover:scale-[1.03] transition">
+                Logout
+            </button>
+        </form>
+    </div>
+
+    <!-- Main Form -->
+    <form th:action="@{'/results/process-form'}" th:object="${studentForm}" method="post" id="studentForm" class="space-y-10">
+
+        <!-- Student Information -->
+        <div>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                🧑‍🎓 Student Information
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <input type="text" placeholder="Student ID" th:field="*{id}" class="input-field" required>
+                <input type="text" placeholder="Name" th:field="*{name}" class="input-field" required>
+                <input type="text" placeholder="Roll Number" th:field="*{rollNumber}" class="input-field" required>
+                <input type="email" placeholder="Email" th:field="*{email}" class="input-field" required>
+                <input type="text" placeholder="School Name" th:field="*{schoolName}" class="input-field">
+                <input type="date" placeholder="DOB" th:field="*{dob}" class="input-field">
+                <select th:field="*{gender}" class="input-field">
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Subjects & Marks -->
+        <div>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                📚 Subjects & Marks
+            </h2>
+
+            <div id="subjectsContainer" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-6 gap-4 bg-gray-50 p-4 rounded-lg border hover:shadow-md transition">
+                    <input name="marks[0].subject" type="text" placeholder="Subject" class="col-span-2 input-field">
+                    <input name="marks[0].marks" type="number" placeholder="Marks" class="input-field">
+                    <input name="marks[0].maxMarks" type="number" placeholder="Max Marks" class="input-field">
+                    <input name="marks[0].grade" type="text" placeholder="Grade" class="input-field">
+                    <input name="marks[0].remark" type="text" placeholder="Remark" class="input-field">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-6 gap-4 bg-gray-50 p-4 rounded-lg border hover:shadow-md transition">
+                    <input name="marks[1].subject" type="text" placeholder="Subject" class="col-span-2 input-field">
+                    <input name="marks[1].marks" type="number" placeholder="Marks" class="input-field">
+                    <input name="marks[1].maxMarks" type="number" placeholder="Max Marks" class="input-field">
+                    <input name="marks[1].grade" type="text" placeholder="Grade" class="input-field">
+                    <input name="marks[1].remark" type="text" placeholder="Remark" class="input-field">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-6 gap-4 bg-gray-50 p-4 rounded-lg border hover:shadow-md transition">
+                    <input name="marks[2].subject" type="text" placeholder="Subject" class="col-span-2 input-field">
+                    <input name="marks[2].marks" type="number" placeholder="Marks" class="input-field">
+                    <input name="marks[2].maxMarks" type="number" placeholder="Max Marks" class="input-field">
+                    <input name="marks[2].grade" type="text" placeholder="Grade" class="input-field">
+                    <input name="marks[2].remark" type="text" placeholder="Remark" class="input-field">
+                </div>
+            </div>
+
+            <div class="flex justify-center items-center my-5">
+                <button type="button" onclick="addRow()" class="text-white px-3 py-2 bg-blue-700 rounded hover:bg-blue-800 transition">
+                    ➕ Add Subject
+                </button>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="text-center mt-10 flex justify-center gap-6">
+            <a th:href="@{'/'}"
+               class="px-8 py-3 rounded-lg font-semibold transition bg-gradient-to-r from-gray-500 to-gray-600 text-white hover:from-gray-600 hover:to-gray-700">
+                Go to Dashboard
+            </a>
+            <button type="submit"
+                    class="px-8 py-3 rounded-lg font-semibold transition bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700">
+                Save Student Result
+            </button>
+        </div>
+
+    </form>
+</div>
+
+<style>
+    .input-field {
+      @apply w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition;
+    }
+</style>
+
+<script>
+    let index = 3;
+    function addRow() {
+      const container = document.getElementById("subjectsContainer");
+      container.insertAdjacentHTML('beforeend', `
+        <div class="grid grid-cols-1 md:grid-cols-6 gap-4 bg-gray-50 p-4 rounded-lg border hover:shadow-md transition">
+          <input name="marks[${index}].subject" type="text" placeholder="Subject" class="col-span-2 input-field">
+          <input name="marks[${index}].marks" type="number" placeholder="Marks" class="input-field">
+          <input name="marks[${index}].maxMarks" type="number" placeholder="Max Marks" class="input-field">
+          <input name="marks[${index}].grade" type="text" placeholder="Grade" class="input-field">
+          <input name="marks[${index}].remark" type="text" placeholder="Remark" class="input-field">
+        </div>
+      `);
+      index++;
+    }
+</script>
+
+</body>
+</html>
